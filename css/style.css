@@ -1,0 +1,103 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    background-color: rgb(143, 143, 143);
+}
+
+a{
+    color: #000;
+}
+
+header{
+    background-color: #fff;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+footer{
+    background-color: grey;
+    height: 10vh;
+}
+
+.regContainer{
+    width: 100%;
+    min-height: 80vh;
+    display: grid;
+    align-items: center;
+}
+
+.formWrap {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 15px 5px 20px rgba(9, 14, 2, 0.4);
+}
+
+.regContainer form{
+    max-width: 400px;
+    margin: auto;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0px 25px 0px;
+    gap: 13px;
+}
+
+.regContainer form h2{
+    padding-bottom: 5px;
+    border-bottom: 2px solid;
+    margin-bottom: 15px;
+}
+
+.regContainer form input[type=text], 
+.regContainer form input[type=password],
+.regContainer form input[type=tel],
+.regContainer form input[type=email]{
+    padding: 0px 5px 0px 5px;
+    height: 40px;
+}
+
+.regContainer form input[type=submit]{
+    padding: 5px 0px 5px 0px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    height: 40px;
+}
+
+.regContainer form input[type=submit]:hover{
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.forgetPassword{
+    display: flex;
+    justify-content: space-between;
+}
+.forgetAcc{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.regContainer form input[type=checkbox]{
+    width: 15px;
+    height: 15px;
+}
+
+.regContainer form label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+svg{
+    height: 100px;
+    width: 100px;
+}
