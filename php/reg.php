@@ -60,9 +60,11 @@ if ($arrDb) {
 }
 
 $passwordHash = password_hash($password, PASSWORD_DEFAULT); 
+
 $conn->prepare("INSERT INTO users (login, password, email, tel, fio, role) VALUES (?,?,?,?,?,?)")
-     ->execute([$login,$password,$email,$tel,$fio,$role]);
-    $_SESSION['user_id'] = $conn->lastInsertId();
+     ->execute([$login, $passwordHash, $email, $tel, $fio, $role]);
+
+$_SESSION['user_id'] = $conn->lastInsertId();
 
 $_SESSION['message'] = "Регистрация успешна";
 header("Location: ../index.php?stat=ok");

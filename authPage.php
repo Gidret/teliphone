@@ -37,8 +37,8 @@ $class = in_array($status, $whiteList) ? $status : '';
                     <input type="submit" value="Зарегистрироваться">
 
                     <div class="forgetPassword">
-                    <label for="inputPassword">Нет аккаунтф?</label>
-                    <a href="authPage.php">Создать</a>
+                    <label for="inputPassword">Нет аккаунта?</label>
+                    <a href="index.php">Создать</a>
                 </div>
                 </form>
             </div>
