@@ -92,6 +92,7 @@ footer{
     padding-bottom: 5px;
     border-bottom: 2px solid;
     margin-bottom: 15px;
+    color: #0037ff;
 }
 
 .regContainer form input[type=text], 
@@ -107,7 +108,7 @@ footer{
 
 .regContainer form input[type=submit]{
     padding: 5px 0px 5px 0px;
-    background-color: #000;
+    background-color: #0037ff;
     color: #fff;
     cursor: pointer;
     height: 40px;
@@ -126,6 +127,12 @@ footer{
     display: flex;
     justify-content: space-between;
 }
+
+.forgetPassword a{
+    color: #0037ff;
+    text-decoration: none;
+}
+
 .forgetAcc{
     display: flex;
     flex-direction: column;
