@@ -5,7 +5,7 @@
 ## 🛠 Технологический стек
 * **Backend:** PHP 8.5+ (Native)
 * **Database:** MySQL 8.0 (в Docker-контейнере)
-* **Frontend:** HTML5, CSS3, JavaScript (Vanilla JS)
+* **Frontend:** HTML, CSS, JavaScript (Vanilla JS)
 * **Инструменты управления БД:** phpMyAdmin (в Docker-контейнере)
 
 ---
@@ -36,7 +36,7 @@
 
 ```bash
 # Запуск контейнера MySQL
-docker run --name my-mysql -e MYSQL_ROOT_PASSWORD=mysecretpassword -p 3306:3306 -d mysql
+docker run --name my-mysql -e MYSQL_ROOT_PASSWORD="ваш пароль" -p 3306:3306 -d mysql
 
 # Запуск контейнера phpMyAdmin для удобного управления через браузер
 docker run --name my-phpmyadmin -d -e PMA_HOST=172.17.0.1 -p 8080:80 phpmyadmin
@@ -44,12 +44,12 @@ docker run --name my-phpmyadmin -d -e PMA_HOST=172.17.0.1 -p 8080:80 phpmyadmin
 
 ### 2. Настройка базы данных
 1. Откройте в браузере **`http://localhost:8080`** (phpMyAdmin).
-2. Авторизуйтесь: пользователь `root`, пароль `mysecretpassword`.
+2. Авторизуйтесь: пользователь `root`, пароль `ваш пароль`.
 3. Создайте базу данных с именем `mobile`.
 4. Импортируйте SQL-структуру таблиц (`users`, `telephones`, `sellers`, `sales_ledger`). *Убедитесь, что поле `tel` имеет тип `VARCHAR(20)` для корректного сохранения форматированных номеров.*
 
-### 3. Конфигурация PHP-сервера
-В файле `/etc/php/php.ini` вашего Arch Linux должны быть включены следующие директивы:
+### 3. Конфигурация PHP-сервера (Если используете Linux)
+В файле `/etc/php/php.ini` должны быть включены следующие директивы:
 ```ini
 extension=pdo_mysql
 short_open_tag = On

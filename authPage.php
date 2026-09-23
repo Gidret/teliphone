@@ -14,7 +14,15 @@ $class = in_array($status, $whiteList) ? $status : '';
     <title>Authorization</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <div class="headLogo">
+            <h1>Магазин телефонов</h1>
+        </div>
+        <div class="headHav">
+            <a href="#">Главная</a>
+            <a href="#">Профиль</a>
+        </div>
+    </header>
     <main>
         <div class="regContainer">
             <div class="formWrap">
@@ -34,7 +42,7 @@ $class = in_array($status, $whiteList) ? $status : '';
                     <label for="pass1">Введите пароль</label>
                     <input type="password" required name="password" placeholder="Пароль" id="pass1">
 
-                    <input type="submit" value="Зарегистрироваться">
+                    <input type="submit" value="Войти">
 
                     <div class="forgetPassword">
                     <label for="inputPassword">Нет аккаунта?</label>

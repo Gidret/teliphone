@@ -14,7 +14,15 @@ $class = in_array($status, $whiteList) ? $status : '';
     <title>Registration</title>
 </head>
 <body>
-    <header></header>
+    <header>
+        <div class="headLogo">
+            <h1>Магазин телефонов</h1>
+        </div>
+        <div class="headHav">
+            <a href="#">Главная</a>
+            <a href="#">Профиль</a>
+        </div>
+    </header>
     <main>
         <div class="regContainer">
             <div class="formWrap">
