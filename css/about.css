@@ -1,0 +1,132 @@
+.about-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    min-height: 70vh;
+}
+
+/* Главный заголовок */
+.about-hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-hero h2 {
+    font-size: 36px;
+    color: #0037ff;
+    margin-bottom: 10px;
+}
+
+.about-subtitle {
+    font-size: 18px;
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Блоки с текстом */
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.about-block {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.about-block h3 {
+    font-size: 22px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 8px;
+}
+
+.about-block p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #334155;
+}
+
+/* Список возможностей */
+.about-features-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.about-features-list li {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #334155;
+    position: relative;
+    padding-left: 25px;
+}
+
+.about-features-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #0037ff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Кнопки внизу страницы */
+.text-center {
+    text-align: center;
+}
+
+.about-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-about-primary, .btn-about-secondary {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s;
+}
+
+.btn-about-primary {
+    background-color: #0037ff;
+    color: #ffffff;
+}
+
+.btn-about-primary:hover {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 0 1px #0037ff;
+}
+
+.btn-about-secondary {
+    background-color: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+}
+
+.btn-about-secondary:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+/* Адаптивность */
+@media (max-width: 480px) {
+    .about-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

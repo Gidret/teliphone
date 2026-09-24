@@ -1,0 +1,60 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/script.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <div class="headLogo">
+            <h1>Магазин телефонов</h1>
+        </div>
+        <div class="headHav">
+            <a href="home.php">Главная</a>
+            <a href="telPage.php">Объявления</a>
+            <a href="createPage.php">Создать объявление</a>
+            <a href="profile.php">Профиль</a>
+        </div>
+    </header>
+    <main>
+    <div class="game" id="game">
+            <div class="contDiv">
+                <h2 class="section-title">Каталог</h2>
+                <div class="games-grid">
+                        <div class="gameCard" data-genre="card">
+                            <div class="gameImg">
+                                <img class="gameImg" src="https://cdsassets.apple.com/live/7WUAS350/images/iphone/iphone-17-pro-max-colors.png" alt="">
+                            </div>
+                            <h3>Apple</h3>
+                            <p>Смартфоны Apple iPhone — это популярная линейка мобильных устройств, производимых американской корпорацией Apple</p>
+                            <button class="btn-small">Перейти</button>
+                        </div>
+                        <div class="gameCard" data-genre="card">
+                            <div class="gameImg">
+                                <img class="gameImg" src="https://www.mvideo.ru/blog/wp-content/uploads/2026/08/cover1-8.png" alt="">
+                            </div>
+                            <h3>Pixel</h3>
+                            <p>Google Pixel — это семейство потребительской электроники от компании Google, направлением которого являются смартфоны на базе Android</p>
+                            <button class="btn-small">Перейти</button>
+                        </div>
+                        <div class="gameCard" data-genre="card">
+                            <div class="gameImg">
+                                <img class="gameImg" src="https://mobilo4ka.ru/image/catalog/Xiaomi/mi17%20pro/pas/mi17pro+-6.jpg" alt="">
+                            </div>
+                            <h3>Xiaomi</h3>
+                            <p>Xiaomi — Главные технологические флагманы бренда. Ассортимент ориентирован на определенные потребности и бюджет.</p>
+                            <button class="btn-small">Перейти</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <footer></footer>
+</body>
+</html>

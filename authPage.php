@@ -19,8 +19,10 @@ $class = in_array($status, $whiteList) ? $status : '';
             <h1>Магазин телефонов</h1>
         </div>
         <div class="headHav">
-            <a href="#">Главная</a>
-            <a href="#">Профиль</a>
+            <a href="home.php">О нас</a>
+            <a href="telPage.php">Объявления</a>
+            <a href="createPage.php">Создать объявление</a>
+            <a href="profile.php">Профиль</a>
         </div>
     </header>
     <main>

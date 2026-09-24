@@ -78,6 +78,12 @@ footer{
     /* box-shadow: 15px 5px 20px rgba(9, 14, 2, 0.4); */
 }
 
+.formWrapProf {
+    width: 100%;
+    background-color: #fff;
+    margin: auto 0;
+}
+
 .regContainer form{
     max-width: 400px;
     margin: auto;
@@ -213,4 +219,337 @@ footer{
     cursor: pointer;
     font-weight: 700;
     color: #fff;
+}
+
+.ads-main-container {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 0 15px;
+    min-height: 70vh;
+}
+
+/* Уведомления об успешности / ошибках */
+.session-alert {
+    padding: 12px 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.session-alert.ok {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.session-alert.err {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.auth-required-notice {
+    margin-bottom: 40px;
+    padding: 15px;
+    background-color: #fff3cd;
+    color: #856404;
+    border-radius: 8px;
+    border: 1px solid #ffeeba;
+    font-size: 16px;
+}
+.auth-required-notice a {
+    color: #0037ff;
+    font-weight: bold;
+    text-decoration: none;
+}
+.auth-required-notice a:hover {
+    text-decoration: underline;
+}
+
+/* Блок формы создания */
+.ad-form-block {
+    border: 1px solid #e2e8f0;
+    padding: 25px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+}
+.ad-form-block h2 {
+    color: #0037ff;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.ad-creation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.ad-creation-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.ad-creation-form label {
+    font-weight: bold;
+    color: #2c3e50;
+    font-size: 14px;
+}
+.ad-creation-form input[type=text],
+.ad-creation-form input[type=number],
+.ad-creation-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.2s;
+}
+.ad-creation-form input[type=text]:focus,
+.ad-creation-form input[type=number]:focus,
+.ad-creation-form textarea:focus {
+    border-color: #0037ff;
+}
+.ad-creation-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+.ad-creation-form .form-group-file {
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px dashed #cbd5e1;
+}
+.ad-creation-form input[type=submit] {
+    padding: 12px;
+    background-color: #0037ff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+.ad-creation-form input[type=submit]:hover {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #0037ff;
+}
+
+/* Заголовки ленты */
+.section-subtitle {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+.no-ads-text {
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Карточка объявления */
+.ad-card {
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+}
+.ad-card-body {
+    display: flex;
+    gap: 20px;
+}
+
+/* Обёртка картинки */
+.ad-image-wrap {
+    width: 140px;
+    height: 140px;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
+    background-color: #f8fafc;
+}
+.ad-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ad-content-wrap {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.ad-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 8px;
+    gap: 15px;
+}
+.ad-phone-title {
+    margin: 0;
+    font-size: 20px;
+    color: #0f172a;
+}
+.ad-price-tag {
+    color: #22c55e;
+    font-size: 22px;
+    white-space: nowrap;
+}
+.ad-description-text {
+    margin: 12px 0;
+    color: #334155;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Мета-информация (продавец, дата) */
+.ad-meta-info {
+    font-size: 13px;
+    color: #64748b;
+    background-color: #f8fafc;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.ad-meta-info strong {
+    color: #334155;
+}
+
+/* Контейнер кнопки удаления */
+.ad-delete-container {
+    margin-top: 15px;
+    text-align: right;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 10px;
+}
+.btn-delete-ad {
+    background-color: #ef4444;
+    color: #fff;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+.btn-delete-ad:hover {
+    background-color: #b91c1c;
+}
+
+.ad-textarea {
+    width: 100%;
+    padding: 10px;
+    min-height: 110px;
+    border-radius: 10px;
+    border: 1px solid #000000;
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    resize: none;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+.ad-textarea:focus {
+    border-color: #0037ff;
+}
+
+/* Кастомизация контейнера для добавления фото */
+.ad-file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    cursor: pointer;
+    background: #f8fafc;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px dashed #cbd5e1;
+    transition: background-color 0.2s;
+}
+
+.ad-file-label:hover {
+    background-color: #f1f5f9;
+}
+
+.ad-file-input {
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Центрирование ссылки возврата */
+.back-to-ads {
+    justify-content: center !important;
+    margin-top: 5px;
+}
+
+/* Оформление карточки "Доступ ограничен" (если юзер не авторизован) */
+.ad-access-denied {
+    max-width: 400px;
+    margin: auto;
+    padding: 30px 25px;
+    text-align: center;
+    border: 1px solid #ffeeba;
+    border-radius: 12px;
+    background-color: #fff3cd;
+    color: #856404;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.ad-access-denied h2 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    color: #856404;
+    border-bottom: 2px solid #ffeeba;
+    padding-bottom: 5px;
+}
+
+.ad-access-denied p {
+    margin-bottom: 20px;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Кнопка авторизации в предупреждении */
+.btn-auth-redirect {
+    display: inline-block;
+    background-color: #0037ff;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s, border 0.3s;
+}
+
+.btn-auth-redirect:hover {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 0 0 1px #0037ff;
+}
+
+/* Второстепенная ссылка возврата */
+.link-back-secondary {
+    color: #0037ff;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.link-back-secondary:hover {
+    text-decoration: underline;
 }
