@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: my-mysql
--- Время создания: Сен 24 2026 г., 17:11
+-- Время создания: Сен 24 2026 г., 17:19
 -- Версия сервера: 26.7.0
 -- Версия PHP: 8.3.33
 
@@ -48,6 +48,20 @@ INSERT INTO `ads` (`id`, `user_id`, `phone_model`, `price`, `description`, `phot
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `purchases`
+--
+
+CREATE TABLE `purchases` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `phone_model` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `purchase_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
@@ -82,6 +96,13 @@ ALTER TABLE `ads`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Индексы таблицы `purchases`
+--
+ALTER TABLE `purchases`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
@@ -98,6 +119,12 @@ ALTER TABLE `ads`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT для таблицы `purchases`
+--
+ALTER TABLE `purchases`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
@@ -112,6 +139,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `ads`
   ADD CONSTRAINT `ads_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Ограничения внешнего ключа таблицы `purchases`
+--
+ALTER TABLE `purchases`
+  ADD CONSTRAINT `purchases_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
