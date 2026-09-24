@@ -58,3 +58,101 @@ session_start();
     <footer></footer>
 </body>
 </html>
+
+---- next update ----
+
+php/buy_phone.php
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    exit;
+}
+
+// Защита: покупать могут только авторизованные пользователи
+if (!isset($_SESSION['user_id'])) {
+    $_SESSION['message'] = 'Чтобы совершить покупку, необходимо авторизоваться!';
+    header('Location: ../authPage.php?stat=err');
+    exit;
+}
+
+$phone_model = trim($_POST['phone_model'] ?? '');
+$price       = trim($_POST['price'] ?? '');
+
+if (empty($phone_model) || empty($price)) {
+    $_SESSION['message'] = 'Не удалось определить параметры товара.';
+    header('Location: ../home.php?stat=err');
+    exit;
+}
+
+require_once '../db/conn.php';
+
+// Фиксируем покупку в таблице purchases
+$stmt = $conn->prepare('INSERT INTO purchases (user_id, phone_model, price) VALUES (:user_id, :phone_model, :price)');
+$success = $stmt->execute([
+    ':user_id'     => $_SESSION['user_id'],
+    ':phone_model' => $phone_model,
+    ':price'       => $price
+]);
+
+if ($success) {
+    $_SESSION['message'] = 'Поздравляем с покупкой! Данные сохранены в вашем профиле.';
+    header('Location: ../home.php?stat=ok');
+} else {
+    $_SESSION['message'] = 'Произошла ошибка при оформлении покупки.';
+    header('Location: ../home.php?stat=err');
+}
+exit;
+
+----------------
+
+home.php
+<div class="gameCard" data-genre="card">
+    <div class="gameImg">
+        <img class="gameImg" src="https://apple.com" alt="">
+    </div>
+    <h3>Apple iPhone 17</h3>
+    <p>Смартфоны Apple iPhone — флагманское устройство.</p>
+    
+    <!-- Форма отправки данных в buy_phone.php -->
+    <form action="php/buy_phone.php" method="POST">
+        <input type="hidden" name="phone_model" value="Apple iPhone 17">
+        <input type="hidden" name="price" value="120000">
+        <input type="submit" class="btn-small" value="Купить" style="width: 100%; border: none;">
+    </form>
+</div>
+
+------------
+
+
+profile.php
+
+$my_purchases = [];
+if (isset($_SESSION['user_id'])) {
+    $p_stmt = $conn->prepare('SELECT * FROM purchases WHERE user_id = ? ORDER BY purchase_date DESC');
+    $p_stmt->execute([$_SESSION['user_id']]);
+    $my_purchases = $p_stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+?>
+
+<!-- Этот HTML-блок вставляется в main вашего личного кабинета -->
+<div class="my-purchases-section" style="max-width: 90%; margin: 40px auto; font-family: inherit;">
+    <h2 class="section-title" style="font-size: 28px; margin-bottom: 20px;">Мои покупки</h2>
+    
+    <?php if (!isset($_SESSION['user_id'])): ?>
+        <p>Пожалуйста, войдите, чтобы просмотреть историю покупок.</p>
+    <?php elseif (empty($my_purchases)): ?>
+        <p>Вы еще не совершили ни одной покупки.</p>
+    <?php else: ?>
+        <div class="purchases-list" style="display: flex; flex-direction: column; gap: 15px;">
+            <?php foreach ($my_purchases as $purchase): ?>
+                <div class="purchase-item" style="border: 1px solid #cbd5e1; padding: 15px; border-radius: 10px; display: flex; justify-content: space-between; align-items: center; background: #f8fafc;">
+                    <div>
+                        <h4 style="margin: 0 0 5px 0; color: #0037ff; font-size: 18px;"><?= htmlspecialchars($purchase['phone_model']) ?></h4>
+                        <span style="font-size: 13px; color: #64748b;">Дата сделки: <?= date('d.m.Y H:i', strtotime($purchase['purchase_date'])) ?></span>
+                    </div>
+                    <strong style="color: #22c55e; font-size: 18px;"><?= number_format($purchase['price'], 2, ',', ' ') ?> руб.</strong>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
+</div>
