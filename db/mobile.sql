@@ -2,8 +2,8 @@
 -- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
--- Хост: 172.17.0.1
--- Время создания: Сен 22 2026 г., 20:17
+-- Хост: my-mysql
+-- Время создания: Сен 24 2026 г., 17:11
 -- Версия сервера: 26.7.0
 -- Версия PHP: 8.3.33
 
@@ -20,6 +20,30 @@ SET time_zone = "+00:00";
 --
 -- База данных: `mobile`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `ads`
+--
+
+CREATE TABLE `ads` (
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `phone_model` varchar(250) COLLATE utf8mb4_general_ci NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `description` text COLLATE utf8mb4_general_ci NOT NULL,
+  `photo` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `ads`
+--
+
+INSERT INTO `ads` (`id`, `user_id`, `phone_model`, `price`, `description`, `photo`, `created_at`) VALUES
+(1, 2, 'Pixel 9 Pro XL', 40000.00, 'no', '55e7cf804f0e77219782ca2541df3458.webp', '2026-09-24 16:47:50'),
+(2, 4, 'Iphone 15', 55000.00, 'chotko', '7c82030320834b4570e66bfc8e5ec4e4.png', '2026-09-24 16:58:53');
 
 -- --------------------------------------------------------
 
@@ -42,11 +66,20 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `fio`, `tel`, `email`, `password`, `role`) VALUES
-(1, 'qwerty', 'йцуке', '8(111)212-12-12', '123@123.com', '12345678', 'user');
+(2, 'qwerty', 'йцуке', '8(111)212-12-12', '123@123.com', '$2y$12$QOy3u5d2xsQD6CgYziU85uZSDLehmULqBYMOPd.UyIn06zXeXNy7q', 'user'),
+(3, 'YaRcOO', 'йцуке', '8(111)212-12-11', '111@111.com', '$2y$12$v5vuiq2m/Rdbp7NCFClWZ.xH4DiueFh6PT6rKwq4L64VZkbkesu7W', 'admin'),
+(4, 'YaRcOOo', 'КОКОКО', '8(112)121-22-22', '121212@121212.com', '$2y$12$0UE1eZwIAXoijP6Cx5OcpuE1q46WsO9eEsX0bRqNTTUk7JxT0N366', 'user');
 
 --
 -- Индексы сохранённых таблиц
 --
+
+--
+-- Индексы таблицы `ads`
+--
+ALTER TABLE `ads`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`);
 
 --
 -- Индексы таблицы `users`
@@ -59,10 +92,26 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT для таблицы `ads`
+--
+ALTER TABLE `ads`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Ограничения внешнего ключа сохраненных таблиц
+--
+
+--
+-- Ограничения внешнего ключа таблицы `ads`
+--
+ALTER TABLE `ads`
+  ADD CONSTRAINT `ads_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
