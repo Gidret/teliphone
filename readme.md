@@ -138,3 +138,31 @@ print(f"Длина отрезка AC: {AC}")
 print(f"Длина отрезка BC: {BC}")
 print(f"Сумма длин отрезков AC и BC: {total_sum}")
 
+n = int(input("Введите трехзначное число: "))
+
+# Выделяем цифры числа
+sotnya = n // 100
+desyatki = (n // 10) % 10
+edinitsy = n % 10
+
+# Меняем местами сотни и десятки и собираем новое число
+new_n = desyatki * 100 + sotnya * 10 + edinitsy
+
+print(f"Результат перестановки: {new_n}")
+
+
+n = int(input("Введите трехзначное число: "))
+
+# Выделяем цифры числа
+sotnya = n // 100
+desyatki = (n // 10) % 10
+edinitsy = n % 10
+
+# Находим сумму и произведение
+digit_sum = sotnya + desyatki + edinitsy
+digit_prod = sotnya * desyatki * edinitsy
+
+print(f"Сумма цифр: {digit_sum}")
+print(f"Произведение цифр: {digit_prod}")
+
+
