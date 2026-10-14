@@ -81,3 +81,60 @@ php -S localhost:8000
 ```
 
 После этого откройте браузер по адресу **`http://localhost:8000`** для работы с сайтом.
+
+```bash
+pi = 3.14
+
+R1 = float(input("Введите радиус R1: "))
+R2 = float(input("Введите радиус R2 (R2 < R1): "))
+
+S1 = pi * (R1 ** 2)
+S2 = pi * (R2 ** 2)
+S3 = S1 - S2
+
+print(f"Площадь первого круга S1: {S1}")
+print(f"Площадь второго круга S2: {S2}")
+print(f"Площадь кольца S3: {S3}")
+
+pi = 3.14
+
+L = float(input("Введите длину окружности L: "))
+
+R = L / (2 * pi)
+S = pi * (R ** 2)
+
+print(f"Радиус R: {R}")
+print(f"Площадь S: {S}")
+
+import math
+
+pi = 3.14
+
+S = float(input("Введите площадь круга S: "))
+
+R = math.sqrt(S / pi)
+D = 2 * R
+L = 2 * pi * R
+
+print(f"Диаметр D: {D}")
+print(f"Длина окружности L: {L}")
+
+x1 = float(input("Введите координату x1: "))
+x2 = float(input("Введите координату x2: "))
+
+distance = abs(x2 - x1)
+
+print(f"Расстояние между точками: {distance}")
+
+A = float(input("Введите координату точки A: "))
+B = float(input("Введите координату точки B: "))
+C = float(input("Введите координату точки C: "))
+
+AC = abs(C - A)
+BC = abs(C - B)
+total_sum = AC + BC
+
+print(f"Длина отрезка AC: {AC}")
+print(f"Длина отрезка BC: {BC}")
+print(f"Сумма длин отрезков AC и BC: {total_sum}")
+
